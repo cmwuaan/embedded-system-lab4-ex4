@@ -43,3 +43,15 @@ void loop()
     digitalWrite(ledPins[i], HIGH);
   }
 }
+
+int getDistance()
+{
+  digitalWrite(trigPin, 0);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, 1);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, 0);
+
+  duration = pulseIn(echoPin, HIGH);
+  return int(duration / 2 / 29.412);
+}
